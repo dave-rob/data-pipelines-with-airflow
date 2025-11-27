@@ -9,7 +9,7 @@ from helpers import SqlQueries
 from airflow.operators.postgres_operator import PostgresOperator
 
 default_args = {
-    'owner': 'udacity',
+    'owner': 'Dave',
     'start_date': pendulum.now(),
     'retries': 3,
     'retry_delay': timedelta(minutes=5),
@@ -21,7 +21,7 @@ default_args = {
 @dag(
     default_args=default_args,
     description='Load and transform data in Redshift with Airflow',
-    schedule_interval='@daily',
+    schedule_interval='@hourly',
 )
 def final_project():
 
